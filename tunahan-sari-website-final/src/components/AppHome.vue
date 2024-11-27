@@ -119,4 +119,6 @@ export default {
   margin-bottom: 30px;
   /* Removed extra margin-bottom to prevent excessive spacing */
 }
+
+
 </style>

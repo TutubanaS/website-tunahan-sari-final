@@ -121,7 +121,7 @@
   
   .rectangle {
     width: 100%;
-    height: 60%;
+    height: 60vh;
     max-width: 800px;
     background-color: rgba(51, 51, 51, 0.0);
     color: #ffffff;
@@ -162,7 +162,7 @@
   }
   
   .experience-section {
-    padding: 20px;
+    padding: 0px;
   }
   
   .experience-item {
@@ -223,6 +223,11 @@
     .experience-description {
       margin-top: 10px;
     }
+    
+    .experience-section {
+    padding: 20px;
+  }
+
   }
   </style>
   

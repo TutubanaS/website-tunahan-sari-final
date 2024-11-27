@@ -190,5 +190,7 @@ export default {
     font-size: 1em;
     font-weight: 300;
   }
+
+  
 }
 </style>
