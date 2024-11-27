@@ -211,6 +211,8 @@
       justify-content: space-between;
       flex-wrap: wrap;
     }
+
+    
   
     .contact-header .experience-title {
       margin-bottom: 0;

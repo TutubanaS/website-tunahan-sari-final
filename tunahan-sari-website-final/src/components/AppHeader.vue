@@ -154,12 +154,14 @@ export default {
   .mobile-header {
     
     margin-top: 25px;
+    
   }
 
   .mobile-header .mobile-header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 20px;
   }
 
   .mobile-header .name-title-container {
