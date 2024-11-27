@@ -8,11 +8,9 @@
         <!-- Contact Section -->
         <div class="experience-section">
           <div class="experience-item">
-            <h3 class="experience-title">contacts?</h3>
-            <div class="content-row">
-              <p class="experience-description">
-                need my cv? text me on linkedin for the fastest reply.
-              </p>
+            <!-- Added contact-header wrapper -->
+            <div class="contact-header">
+              <h3 class="experience-title">contacts?</h3>
               <div class="contact-links">
                 <a
                   href="mailto:tunahansari11@gmail.com"
@@ -34,37 +32,44 @@
                 >
               </div>
             </div>
+            <p class="experience-description">
+              need my cv? text me on linkedin for the fastest reply.
+            </p>
           </div>
   
+          <!-- Other experience items -->
           <div class="experience-item">
             <h3 class="experience-title">
               how can i be a software and machine learning engineer at once?
             </h3>
             <p class="experience-description">
-              i studied computer science & engineering and began as a machine learning engineer to my career but soon realized i
-              needed to build APIs, manage databases, and write robust back-end code for all this AI
-              to work. since one depends on the other, i work with both.
+              i studied computer science & engineering and began as a machine
+              learning engineer to my career but soon realized i needed to build
+              APIs, manage databases, and write robust back-end code for all this
+              AI to work. since one depends on the other, i work with both.
             </p>
           </div>
-
+  
           <div class="experience-item">
             <h3 class="experience-title">
               do i freelance for short-term projects?
             </h3>
             <p class="experience-description">
-                yes, shoot me an email or text me on linkedin with the project details, and i'll see how I can contribute :)
+              yes, shoot me an email or text me on linkedin with the project
+              details, and i'll see how I can contribute :)
             </p>
           </div>
-
+  
           <div class="experience-item">
             <h3 class="experience-title">
               what is my favourite series on iracing?
             </h3>
             <p class="experience-description">
-                formula vee by far. even though it's a rookie series, the higher your irating, the better the drivers you match with, and the races become hella fun!
+              formula vee by far. even though it's a rookie series, the higher
+              your irating, the better the drivers you match with, and the races
+              become hella fun!
             </p>
           </div>
-
         </div>
       </div>
     </div>
@@ -167,13 +172,7 @@
   .experience-title {
     font-size: 1.2em;
     font-weight: 500;
-    margin: 0;
-  }
-  
-  .content-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin: 0 0 10px 0;
   }
   
   .experience-description {
@@ -196,6 +195,34 @@
   
   .contact-links a:hover {
     color: #dd63ed;
+  }
+
+  .contact-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 600px) {
+    .contact-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  
+    .contact-header .experience-title {
+      margin-bottom: 0;
+    }
+  
+    .contact-links {
+      margin-top: 10px;
+    }
+  
+    .experience-description {
+      margin-top: 10px;
+    }
   }
   </style>
   

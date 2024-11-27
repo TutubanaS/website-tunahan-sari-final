@@ -1,8 +1,9 @@
-<!-- src/components/Header.vue -->
 <template>
-    <header class="header">
-      <div class="header-content">
-        <!-- Başlık Metinleri -->
+  <div>
+    <!-- Mobile Header -->
+    <header class="header mobile-header">
+      <!-- Mobile Burger Menu -->
+      <div class="mobile-header-content">
         <div class="name-title-container">
           <div class="name">Tunahan Sarı</div>
           <div class="title">
@@ -10,8 +11,50 @@
             Engineer
           </div>
         </div>
-        
-        <!-- Navigasyon Menüsü -->
+
+        <div class="burger-menu" @click="toggleMobileMenu">
+          <div :class="['burger-icon', { 'open': isMobileMenuOpen }]">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <nav :class="['mobile-navigation', { 'open': isMobileMenuOpen }]">
+        <ul>
+          <li @click="selectSection('home')">
+            <a href="#" @click.prevent="setActiveSection('home')">home</a>
+          </li>
+          <li @click="selectSection('projects')">
+            <a href="#" @click.prevent="setActiveSection('projects')">projects</a>
+          </li>
+          <li @click="selectSection('skills')">
+            <a href="#" @click.prevent="setActiveSection('skills')">skills</a>
+          </li>
+          <li @click="selectSection('experience')">
+            <a href="#" @click.prevent="setActiveSection('experience')">experience</a>
+          </li>
+          <li @click="selectSection('contact')">
+            <a href="#" @click.prevent="setActiveSection('contact')">contact & faq</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Desktop Header -->
+    <header class="header desktop-header">
+      <div class="header-content">
+        <!-- Title Texts -->
+        <div class="name-title-container">
+          <div class="name">Tunahan Sarı</div>
+          <div class="title">
+            Software & Machine Learning<br />
+            Engineer
+          </div>
+        </div>
+
+        <!-- Navigation Menu -->
         <div class="nav-container">
           <div class="header-line"></div>
           <nav class="navigation">
@@ -31,185 +74,312 @@
               <li :class="{ active: activeSection === 'contact' }" ref="contactNavItem">
                 <a href="#" @click.prevent="setActiveSection('contact')">contact & faq</a>
               </li>
-              <!-- Kaydırıcı Göstergesi -->
+              <!-- Indicator -->
               <div class="nav-indicator" :style="indicatorStyle"></div>
             </ul>
           </nav>
         </div>
       </div>
     </header>
-  </template>
-  
-  <script>
-  export default {
-    name: 'AppHeader',
-    data() {
-      return {
-        activeSection: 'home', // Varsayılan bölüm
-        indicatorStyle: {
-          left: '0px',
-          width: '0px',
-        },
-      }
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'AppHeader',
+  data() {
+    return {
+      activeSection: 'home',
+      isMobileMenuOpen: false,
+      indicatorStyle: {
+        left: '0px',
+        width: '0px',
+      },
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.updateIndicator();
+    });
+    window.addEventListener('resize', this.updateIndicator);
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.updateIndicator);
+  },
+  methods: {
+    toggleMobileMenu() {
+      this.isMobileMenuOpen = !this.isMobileMenuOpen;
     },
-    mounted() {
+    selectSection(section) {
+      this.setActiveSection(section);
+      this.isMobileMenuOpen = false; // Close menu after selection
+    },
+    setActiveSection(section) {
+      this.activeSection = section;
+      this.$emit('section-selected', section);
       this.$nextTick(() => {
         this.updateIndicator();
       });
-      window.addEventListener('resize', this.updateIndicator);
     },
-    beforeUnmount() { // Vue 3 için beforeDestroy yerine beforeUnmount kullanılır
-      window.removeEventListener('resize', this.updateIndicator);
+    updateIndicator() {
+      const activeNavItem = this.$refs[`${this.activeSection}NavItem`];
+      if (activeNavItem) {
+        const navListRect = this.$refs.navList.getBoundingClientRect();
+        const itemRect = activeNavItem.getBoundingClientRect();
+        const left = itemRect.left - navListRect.left;
+        const width = itemRect.width;
+        this.indicatorStyle = {
+          left: `${left}px`,
+          width: `${width}px`,
+        };
+      }
     },
-    methods: {
-      setActiveSection(section) {
-        this.activeSection = section;
-        this.$nextTick(() => {
-          this.updateIndicator();
-        });
-        this.$emit('section-selected', section); // Add this line
-      },
-      updateIndicator() {
-        const activeNavItem = this.$refs[`${this.activeSection}NavItem`];
-        if (activeNavItem) {
-          const navListRect = this.$refs.navList.getBoundingClientRect();
-          const itemRect = activeNavItem.getBoundingClientRect();
-          const left = itemRect.left - navListRect.left;
-          const width = itemRect.width;
-          this.indicatorStyle = {
-            left: `${left}px`,
-            width: `${width}px`,
-          };
-        }
-      },
-    },
-  }
-  </script>
-  
-  <style scoped>
+  },
+}
+</script>
 
-  .header-content {
-    width: 100%;
+<style scoped>
+.header {
+  width: 100%;
+  background-color: transparent;
+  color: #fff;
+}
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+  .desktop-header {
+    display: none;
   }
 
-  /* Navigasyon Stilleri */
-  .navigation {
-    position: relative; /* Kaydırıcı göstergesinin konumlandırılması için relative */
-    width: 100%;
+  .mobile-header {
+    
+    margin-top: 25px;
   }
-  
-  .navigation ul {
-    width: 100%;
-    list-style: none;
+
+  .mobile-header .mobile-header-content {
     display: flex;
-    justify-content: space-between; /* Navigasyon öğelerini ortalar */
-    gap: 50px; /* Öğeler arasındaki boşluk */
-    margin: 0;
-    padding: 0;
-    position: relative;
+    justify-content: space-between;
+    align-items: center;
   }
-  
-  .navigation li {
-    position: relative;
+
+  .mobile-header .name-title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
-  
-  .navigation a {
-    color: #fff;
-    text-decoration: none;
+
+  .mobile-header .name {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .mobile-header .title {
+    font-size: 14px;
     font-weight: 300;
-    font-size: 18px;
-    padding: 5px 10px; /* Gerektiğinde padding ayarı */
-    transition: color 0.3s; /* Metin renginde yumuşak geçiş */
   }
-  
-  .navigation a:hover {
-    color: #f0f0f0; /* Üzerine gelindiğinde renk değişikliği */
+
+  /* Burger Menu Styling */
+  .mobile-header .burger-menu {
+    display: block;
+    cursor: pointer;
+    z-index: 1000;
+    position: relative;
+  }
+
+  .mobile-header .burger-icon {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
     cursor: pointer;
   }
-  
-  .nav-indicator {
+
+  .mobile-header .burger-icon span {
+    display: block;
     position: absolute;
-    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: #fff;
+    border-radius: 9px;
+    opacity: 1;
     left: 0;
-    height: 100%; /* Adjust height to cover the text */
-    background-color: rgba(255, 255, 255, 0.8); /* Yarı saydam beyaz arka plan */
-    transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1), width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none; /* Etkileşimleri yok say */
-    z-index: -1; /* Navigasyon öğelerinin arkasında */
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
   }
-  
-  .navigation li.active a {
-    color: #1f1f1f; /* Aktif olduğunda metin rengi siyah */
+
+  .mobile-header .burger-icon span:nth-child(1) {
+    top: 0px;
   }
-  
-  /* Nav Container Stilleri */
-  .nav-container {
+
+  .mobile-header .burger-icon span:nth-child(2) {
+    top: 10px;
+  }
+
+  .mobile-header .burger-icon span:nth-child(3) {
+    top: 20px;
+  }
+
+  .mobile-header .burger-icon.open span:nth-child(1) {
+    top: 10px;
+    transform: rotate(135deg);
+  }
+
+  .mobile-header .burger-icon.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+  }
+
+  .mobile-header .burger-icon.open span:nth-child(3) {
+    top: 10px;
+    transform: rotate(-135deg);
+  }
+
+  /* Mobile Navigation Styling */
+  .mobile-header .mobile-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 31, 31, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 100;
+  }
+
+  .mobile-header .mobile-navigation.open {
+    transform: translateX(0);
+  }
+
+  .mobile-header .mobile-navigation ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-header .mobile-navigation a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 300;
+    transition: color 0.3s;
+  }
+
+  .mobile-header .mobile-navigation a:hover {
+    color: #f0f0f0;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 601px) {
+  .mobile-header {
+    display: none;
+  }
+
+  .desktop-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+   
+  }
+
+  .desktop-header .header-content {
+    width: 100%;
+  }
+
+  /* Nav Container Styles */
+  .desktop-header .nav-container {
     flex-shrink: 0;
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
   }
-  
-  /* Başlık Metinleri Stilleri */
-  .name-title-container {
+
+  /* Title Texts Styles */
+  .desktop-header .name-title-container {
     display: flex;
-    justify-content: center; /* Center the content */
+    justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    gap: 30px; /* Add some space between the name and title */
+    gap: 30px;
   }
-  
-  .name {
-    font-size: 42px; /* Gerektiğinde boyut ayarı */
+
+  .desktop-header .name {
+    font-size: 42px;
     font-weight: 500;
   }
-  
-  .title {
-    font-size: 18px; /* Gerektiğinde boyut ayarı */
+
+  .desktop-header .title {
+    font-size: 18px;
     font-weight: 300;
   }
-  
-  /* Header Stili */
-  .header {
-    width: 100%;
-    background-color: transparent;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* İçeriği ortalar */
-    padding: 20px 0; /* Dikey padding */
-    margin-top: 50px;
-  }
-  
-  /* Header Çizgisi */
-  .header-line {
+
+  /* Header Line */
+  .desktop-header .header-line {
     width: 100%;
     height: 2px;
     background-color: #fff;
     margin-bottom: 5px;
   }
-  
-  /* Responsive Ayarlamalar */
-  @media (max-width: 600px) {
-    .name {
-      font-size: 24px;
-    }
-  
-    .title {
-      font-size: 14px;
-    }
-  
-    .navigation a {
-      font-size: 16px;
-    }
-  
-    .nav-indicator {
-      height: 1px;
-    }
-  
-    .navigation ul {
-      gap: 20px;
-    }
+
+  /* Navigation Styles */
+  .desktop-header .navigation {
+    position: relative;
+    width: 100%;
   }
-  </style>
-  
+
+  .desktop-header .navigation ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  .desktop-header .navigation li {
+    position: relative;
+  }
+
+  .desktop-header .navigation a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 18px;
+    padding: 5px 10px;
+    transition: color 0.3s;
+  }
+
+  .desktop-header .navigation a:hover {
+    color: #f0f0f0;
+    cursor: pointer;
+  }
+
+  .desktop-header .nav-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1), width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .desktop-header .navigation li.active a {
+    color: #1f1f1f;
+  }
+
+}
+</style>

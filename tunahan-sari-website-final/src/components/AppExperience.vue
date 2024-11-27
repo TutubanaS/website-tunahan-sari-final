@@ -9,20 +9,29 @@
       <div class="experience-section">
         <div class="experience-item">
           <div class="experience-header">
-            <p class="experience-description">software & machine learning engineer @ enter</p>
             <h3 class="experience-title">2023-2025</h3>
+            <div class="experience-details">
+              <p class="experience-role">software & machine learning engineer</p>
+              <p class="experience-company">@ enter</p>
+            </div>
           </div>
         </div>
         <div class="experience-item">
           <div class="experience-header">
-            <p class="experience-description">machine learning engineer @ universaldot foundation</p>
             <h3 class="experience-title">2022-2023</h3>
+            <div class="experience-details">
+              <p class="experience-role">machine learning engineer</p>
+              <p class="experience-company">@ universaldot foundation</p>
+            </div>
           </div>
         </div>
         <div class="experience-item">
           <div class="experience-header">
-            <p class="experience-description">tutoring assistant @ tu eindhoven</p>
             <h3 class="experience-title">2021-2023</h3>
+            <div class="experience-details">
+              <p class="experience-role">tutoring assistant</p>
+              <p class="experience-company">@ tu eindhoven</p>
+            </div>
           </div>
         </div>
         <p class="experience-note">
@@ -130,25 +139,56 @@ export default {
 
 .experience-header {
   display: flex;
+  flex-direction: row-reverse; /* Keep year on the right for desktop */
   justify-content: space-between;
   align-items: center;
-}
-
-.experience-description {
-  font-size: 1.2em;
-  font-weight: 300;
-  margin: 0; /* Remove default margin */
 }
 
 .experience-title {
   font-size: 1.2em;
   font-weight: 300;
-  margin: 0; /* Remove default margin */
+  margin: 0;
+}
+
+.experience-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-role,
+.experience-company {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 300;
 }
 
 .experience-note {
   font-size: 1em;
   font-weight: 200;
   margin-top: 20px;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .experience-title {
+    font-size: 1.2em;
+    font-weight: 500; /* Year bold */
+    margin-bottom: 5px;
+  }
+
+  .experience-role {
+    font-size: 1em;
+    font-weight: 400;
+  }
+
+  .experience-company {
+    font-size: 1em;
+    font-weight: 300;
+  }
 }
 </style>
