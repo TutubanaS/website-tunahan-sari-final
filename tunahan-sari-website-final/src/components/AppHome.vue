@@ -10,7 +10,7 @@
       <p>
         since i co-founded a company to revolutionize how we engage with art, i realized i needed a website to reflect my design understanding. so, i created this website.</p>
       <p>
-        i offer software development and AI/ML services through vista technologies.</p>
+        i offer software development and AI/ML services through vista technologies for freelancing projects. check the contact & faq page for more information.</p>
       <p>
         next to software development, i paint and design. the website's design/code belongs to me.</p>
     </div>

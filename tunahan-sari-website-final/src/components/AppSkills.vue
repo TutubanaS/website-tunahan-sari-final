@@ -24,6 +24,42 @@
 
           <p class="additional-text">for front-end requirements like this website, vue is by far my favorite framework to play around with. i didn't use to think design tools were important, but using figma before programming any front-end massively changed the way i work.
           </p>
+
+          <div class="tech-stack-container">
+            <h3 class="skills-title">languages</h3>
+            <ul class="skills-list">
+              <p>english - full proficiency, turkish - native, dutch - competing with 3yr-olds</p>
+              
+            </ul>
+          </div>
+
+          <p class="additional-text">ik werk aan mijn nederlands...</p>
+
+          <div class="tech-stack-container">
+            <h3 class="skills-title">ai-concepts</h3>
+            <ul class="skills-list">
+                <p>ml; neural nets, transformers, ann</p>
+                <p>computer vision; yolo, efficientdet, tflite</p>
+                <p>llm; rag, langchain, vectordbs (pgvector)</p>
+
+            </ul>
+          </div>
+
+          <p class="additional-text">
+            everybody trains yolos and other stock object detection models to run on strong machines. 
+            i believe being able to run them on devices like phones or other weak devices is the real deal. lately, 
+            i am mainly dealing with this problem, making models so small that phones can run them, trained on not-huge datasets, 
+            but also accurate enough to keep users happy with the results.
+          </p>
+
+          <p class="additional-text">
+            approximate nearest neighbors (ann) is such an underrated method, 
+            it’s crazy to me that it doesn’t get as much attention as neural networks. 
+            even though companies are obsessed with the buzzword "deep neural networks," 
+            i genuinely believe that, with the right expertise in ann, it’s entirely possible to build a faster, cheaper, and more accurate pipeline.
+            i can probably prove this to you if you have a use case where you currently use neural nets.
+          </p>
+
           
           
         </div>
