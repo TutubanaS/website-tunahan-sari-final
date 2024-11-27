@@ -73,7 +73,7 @@ export default {
 
 .rectangle {
   width: 100%;
-  height: 60%; /* Set the height of the rectangle */
+  height: 60vh; /* Set the height of the rectangle */
   max-width: 800px; /* Same max-width as the header */
 
   background-color: rgba(51, 51, 51, 0.0); /* Transparent background */
