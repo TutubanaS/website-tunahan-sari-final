@@ -3,10 +3,6 @@
     <!-- Rotating Gradient Background -->
     <div class="gradient-background"></div>
     
-    <!-- Noise Layer with Image -->
-    <div class="noise-layer">
-      <!-- Noise Layer CSS is managed here; no img tag is used -->
-    </div>
     
     <!-- Common Container for Header and Content -->
     <div class="container">
@@ -105,14 +101,11 @@ body {
 /* Rotating Gradient Background */
 .gradient-background {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 250vw; /* Extended to prevent edge gaps during rotation */
-  height: 250vh; /* Extended to prevent edge gaps during rotation */
-  background: linear-gradient(0deg, #000000, #414141);
-  animation: rotateGradient 10s linear infinite;
-  transform: translate(-50%, -50%) rotate(0deg); /* Center and start rotation */
-  transform-origin: center center; /* Center of rotation */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #111111;
   z-index: -3;
 }
 
@@ -126,22 +119,7 @@ body {
   }
 }
 
-/* Noise Layer */
-.noise-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* Disable interactions */
-  z-index: -2;
-  overflow: hidden; /* Hide overflow if any */
-  background-image: url('./assets/random-static.png'); /* Noise image */
-  background-size: 50%; /* Image size */
-  background-repeat: repeat; /* Repeat the image */
-  opacity: 0.8; /* Noise opacity */
-  mix-blend-mode: overlay; /* Blend mode with background */
-}
+
 
 /* Common Container for Header and Content */
 .container {
