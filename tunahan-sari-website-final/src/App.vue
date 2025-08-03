@@ -522,6 +522,9 @@ body {
   color: white;
   animation: fadeIn 0.8s ease-out;
   z-index: 20;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .loading-name {
@@ -545,14 +548,19 @@ body {
   .loading-content {
     flex-direction: column;
     gap: 5px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
   
   .loading-name {
     font-size: 24px;
+    margin: 0 auto;
   }
   
   .loading-title {
     font-size: 14px;
+    text-align: center;
   }
 }
 </style>
