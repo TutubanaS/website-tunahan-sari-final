@@ -37,19 +37,6 @@
             </p>
           </div>
   
-          <!-- Other experience items -->
-          <div class="experience-item">
-            <h3 class="experience-title">
-              how can i be a software and machine learning engineer at once?
-            </h3>
-            <p class="experience-description">
-              i studied computer science & engineering and began as a machine
-              learning engineer to my career but soon realized i needed to build
-              APIs, manage databases, and write robust back-end code for all this
-              AI to work. since one depends on the other, i work with both.
-            </p>
-          </div>
-  
           <div class="experience-item">
             <h3 class="experience-title">
               do i freelance for short-term projects?
@@ -57,17 +44,6 @@
             <p class="experience-description">
               yes, shoot me an email or text me on linkedin with the project
               details, and i'll see how I can contribute :)
-            </p>
-          </div>
-  
-          <div class="experience-item">
-            <h3 class="experience-title">
-              what is my favourite series on iracing?
-            </h3>
-            <p class="experience-description">
-              formula vee by far. even though it's a rookie series, the higher
-              your irating, the better the drivers you match with, and the races
-              become hella fun!
             </p>
           </div>
         </div>

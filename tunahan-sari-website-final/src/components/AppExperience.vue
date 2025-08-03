@@ -9,9 +9,18 @@
       <div class="experience-section">
         <div class="experience-item">
           <div class="experience-header">
+            <h3 class="experience-title">2025-</h3>
+            <div class="experience-details">
+              <p class="experience-role">ai & software engineer | consultant</p>
+              <p class="experience-company">@ accenture</p>
+            </div>
+          </div>
+        </div>
+        <div class="experience-item">
+          <div class="experience-header">
             <h3 class="experience-title">2023-2025</h3>
             <div class="experience-details">
-              <p class="experience-role">software & machine learning engineer</p>
+              <p class="experience-role">ai & software engineer</p>
               <p class="experience-company">@ enter</p>
             </div>
           </div>

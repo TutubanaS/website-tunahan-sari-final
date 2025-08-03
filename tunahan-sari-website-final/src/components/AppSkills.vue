@@ -17,24 +17,6 @@
             </ul>
           </div>
 
-          <!-- New Text Section Outside Tech Stack -->
-          <p class="additional-text">the languages, frameworks, and tech listed above are what i learned throughout my career. python is mainly related to machine learning, ai, and, along with kotlin, back-end development. since devops knowledge is heavily required in practical machine learning work, i have extensively worked with docker and cloud systems like digitalocean and google cloud.</p>
-
-          
-
-          <p class="additional-text">for front-end requirements like this website, vue is by far my favorite framework to play around with. i didn't use to think design tools were important, but using figma before programming any front-end massively changed the way i work.
-          </p>
-
-          <div class="tech-stack-container">
-            <h3 class="skills-title">languages</h3>
-            <ul class="skills-list">
-              <p>english - full proficiency, turkish - native, dutch - competing with 3yr-olds</p>
-              
-            </ul>
-          </div>
-
-          <p class="additional-text">ik werk aan mijn nederlands...</p>
-
           <div class="tech-stack-container">
             <h3 class="skills-title">ai-concepts</h3>
             <ul class="skills-list">
@@ -45,20 +27,21 @@
             </ul>
           </div>
 
-          <p class="additional-text">
-            everybody trains yolos and other stock object detection models to run on strong machines. 
-            i believe being able to run them on devices like phones or other weak devices is the real deal. lately, 
-            i am mainly dealing with this problem, making models so small that phones can run them, trained on not-huge datasets, 
-            but also accurate enough to keep users happy with the results.
-          </p>
 
-          <p class="additional-text">
-            approximate nearest neighbors (ann) is such an underrated method, 
-            it’s crazy to me that it doesn’t get as much attention as neural networks. 
-            even though companies are obsessed with the buzzword "deep neural networks," 
-            i genuinely believe that, with the right expertise in ann, it’s entirely possible to build a faster, cheaper, and more accurate pipeline.
-            i can probably prove this to you if you have a use case where you currently use neural nets.
-          </p>
+
+          <div class="tech-stack-container">
+            <h3 class="skills-title">languages</h3>
+            <ul class="skills-list">
+              <p>english - full proficiency, turkish - native, dutch - competing with 3yr-olds</p>
+              
+            </ul>
+          </div>
+
+
+
+          
+
+
 
           
           
@@ -156,12 +139,12 @@
   }
   
   .tech-stack-container {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    background-color: transparent; /* No background */
     padding: 5px 20px; /* Adjust padding as needed */
     border-radius: 0px; /* Rounded corners */
-    color: #000; /* Black text */
+    color: #ffffff; /* White text */
     margin-bottom: 20px; /* Space below the container */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
+    box-shadow: none; /* No shadow */
   }
   
   .skills-title {

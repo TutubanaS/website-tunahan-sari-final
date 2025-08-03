@@ -7,7 +7,7 @@
         <div class="name-title-container">
           <div class="name">Tunahan Sarı</div>
           <div class="title">
-            Software & Machine Learning<br />
+            AI & Software<br />
             Engineer
           </div>
         </div>
@@ -49,7 +49,7 @@
         <div class="name-title-container">
           <div class="name">Tunahan Sarı</div>
           <div class="title">
-            Software & Machine Learning<br />
+            AI & Software<br />
             Engineer
           </div>
         </div>
